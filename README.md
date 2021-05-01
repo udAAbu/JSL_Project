@@ -3,8 +3,7 @@ Predicting Joint space loss with deep learning
 
 ### Preliminary work
 * Convert all the DICOM images to PNG, and split in half to extract the left knee and right knee. 
-* Feed the single knee images to YOLO-V4 to automatically plot the bounding box on the knee joint and crop.
-* Using the cropped image to begin training.
+* Feed the single knee images to YOLO-V4 to automatically plot the bounding box on the knee joint and crop the bounding region.
 
 ### Illustration of the three notebooks:
 * All three notebooks follow this workflow
@@ -12,7 +11,7 @@ Predicting Joint space loss with deep learning
   2. loading data in batch using custom Dataset and Dataloader
   3. define model architecture
   4. create training and evaluation function
-  5. begin training and evaluation
+  5. initialize model, begin training and evaluation
   6. visualize model using saliency map
   7. save model
 
@@ -37,6 +36,7 @@ Predicting Joint space loss with deep learning
 * data augmentation
 * two output nodes with softmax and one output nodes with sigmoid.
 * use ([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]) to normalize image tensors.
+* some other trivial details
 
 
 
