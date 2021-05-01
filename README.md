@@ -31,7 +31,7 @@ Predicting **Joint space loss (JSL)** progression with deep learning
 
 * [Multi-Tasking](https://github.com/udAAbu/JSL_Project/blob/main/Multi_tasking.ipynb): This notebook is seperate from the previous two, I took a different approach to see whether the performance can be improved. I trained a CNN to predict the KL_grade and JSL progression at the same time. I attached two head layers to the end of the CNN. One has 5 output nodes to predict KL_grade, and the other one has 1 output nodes to predict JSL progression. However, the result does not show any improvement (~0.7 AUC).
 
-### Thing I have tried to improve performance:
+### Thing have been tried to improve performance:
 * batch size (8, 16, 32, 64) (higher batch size will cause GPU memory issue)
 * all kinds of learning rate, optimizer, scheduler
 * model type and architecture (e.g. Densenet, VGG, Resnet, etc) (All pretrained on ImageNet)
