@@ -5,6 +5,10 @@ Predicting **Joint space loss (JSL)** progression with deep learning
 * Convert all the DICOM images to PNG, and split in half to extract the left knee and right knee. 
 * Feed the single knee images to YOLO-V4 to automatically plot the bounding box on the knee joint and crop the bounding region.
 
+### Several notes on running the notebooks on Google Colab
+* You need to change the all paths appeared in the notebooks to the paths in your google drive.
+* If you use the KL_grade pre-trained model, [Pretraining_on_KL_grade](https://github.com/udAAbu/JSL_Project/blob/main/Pretraining_on_KL_grade.ipynb) should be executed before running [radio_joint](https://github.com/udAAbu/JSL_Project/blob/main/radio_joint.ipynb).
+
 ### Illustration of the three notebooks:
 * All three notebooks follow this workflow
   1. data preprocessing
