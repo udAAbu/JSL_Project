@@ -7,7 +7,7 @@ Predicting Joint space loss with deep learning
 * Using the cropped image to begin training.
 
 ### Illustration of the three notebooks:
-* [Pretraining_on_KL_grade](https://github.com/udAAbu/JSL_Project/blob/main/Pretraining_on_KL_grade.ipynb): Before training the CNN model to predict joint space loss(JSL) progression, I first train the model to predict 5-level KL_grade (~0.72 accuracy). There are several reasons to this:
+* [Pretraining_on_KL_grade](https://github.com/udAAbu/JSL_Project/blob/main/Pretraining_on_KL_grade.ipynb): Before training the CNN model to predict **joint space loss (JSL)** progression, I first train the model to predict 5-level **KL_grade** (~0.72 accuracy). There are several reasons to this:
   * KL_grade is one of the most important factors in determining the Knee Osteoarthritis severity. 
   * By first training model to predict KL_grade, the model can learn fruitful features that can help our downstream task of predicting the JSL progression. 
   * We have more labels on KL_grade (8000+) than on JSL progression(4000+), which helps the large network train and stablize.
