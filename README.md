@@ -1,5 +1,5 @@
 # JSL_Project
-Predicting Joint space loss(JSL) progression with deep learning
+Predicting **Joint space loss (JSL)** progression with deep learning
 
 ### Preliminary work
 * Convert all the DICOM images to PNG, and split in half to extract the left knee and right knee. 
