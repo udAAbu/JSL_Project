@@ -21,9 +21,9 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
 1. Original images are in DICOM format containing both knees for one patient, and we convert them into PNG format and split them in half to extract the left knee and right knee.
 2. We adapted [YOLO-V4](https://github.com/udAAbu/yolo-v4) (You Only Look Once) to train a fully-automated joint cropping CNN, which help us automatically identify the joint of a knee and crop it. 
 3. These cropped images will become the final inputs to our CNN model.
+<img style="text-align:center;" src="https://github.com/udAAbu/JSL_Project/blob/main/github_images/Image.png">
 
-<img src="https://github.com/udAAbu/JSL_Project/blob/main/github_images/Image.png">
-**_The diagram above shows how we split the image, feed the single knee images to [YOLO-V4](https://github.com/udAAbu/yolo-v4) to automatically plot the bounding box around the knee joint and crop the bounding region._** 
+**The diagram above shows how we split the image, feed the single knee images to YOLO-V4 to automatically plot the bounding box around the knee joint and crop the bounding region** 
 
 ### Several notes on running the notebooks on Google Colab
 * You need to change the all paths appeared in the notebooks to the paths in your google drive.
