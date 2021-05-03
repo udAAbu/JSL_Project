@@ -27,9 +27,9 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
 
 ## Methodology:
 - **Kellgren-Lawrence grade (KL-grade)**:
- - KL-grade is a scale that measures the currect stage of OA. It's determined by the central reading from the baseline images. There are 5 grades in total (0-4), and the severity of OA increases as the number goes up. The following images provides a illustration: 
- - <img src="https://www.researchgate.net/profile/Joseph_Antony3/publication/315695691/figure/fig6/AS:668531486101508@1536401735381/The-KL-grading-system-to-assess-the-severity-of-knee-OA.ppm" width="600" height="350">. 
- - In our two methods mentioned below, we will adopt the KL-grade in 2 different ways, and we hope that with the help of KL-grade, the model can learn more fruitful and informative features that can help our downstream task of predicting the JSL progression. 
+  - KL-grade is a scale that measures the currect stage of OA. It's determined by the central reading from the baseline images. There are 5 grades in total (0-4), and the severity of OA increases as the number goes up. The following images provides a illustration: 
+  - <img src="https://www.researchgate.net/profile/Joseph_Antony3/publication/315695691/figure/fig6/AS:668531486101508@1536401735381/The-KL-grading-system-to-assess-the-severity-of-knee-OA.ppm" width="600" height="350">. 
+  - In our two methods mentioned below, we will adopt the KL-grade in 2 different ways, and we hope that with the help of KL-grade, the model can learn more fruitful and informative features that can help our downstream task of predicting the JSL progression. 
 
 - **Method 1**:
  - In the our first method, we formulated the problem in a multi-tasking setting to predict the KL-grade and the JSL progression at the same time. We first use CNN as a feature extractor, and two different fully-connected networks are attached to the end of the CNN to make the classification. One has 5 output nodes responsible with a softmax activation for KL_grade classification, and the other one has 1 output nodes with a sigmoid activation to predict JSL progression. The following image shows the architecture of the whole network. 
