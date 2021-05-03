@@ -32,7 +32,7 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
   - In our two methods mentioned below, we will adopt the KL-grade in 2 different ways, and we hope that with the help of KL-grade, the model can learn more fruitful and informative features that can help our downstream task of predicting the JSL progression. 
 
 - **Method 1**:
- - In the our first method, we formulated the problem in a multi-tasking setting to predict the KL-grade and the JSL progression at the same time. We first use CNN as a feature extractor, and two different fully-connected networks are attached to the end of the CNN to make the classification. One has 5 output nodes responsible with a softmax activation for KL_grade classification, and the other one has 1 output nodes with a sigmoid activation to predict JSL progression. The following image shows the architecture of the whole network. 
+ - In the our first method, we formulated the problem in a multi-tasking setting to predict the KL-grade and the JSL progression at the same time. We first use CNN as a feature extractor, and two different fully-connected networks are attached to the end of the CNN to make the classification. One has 5 output nodes with a softmax activation responsible for KL_grade classification, and the other one has 1 output nodes with a sigmoid activation to predict JSL progression. The following image shows the architecture of the whole network. 
  - 
  - 
 Before getting into predicting the **joint space loss (JSL)** progression directly, we first trained the model to predict 5-level **KL_grade** (~0.72 accuracy). There are several reasons to this:
