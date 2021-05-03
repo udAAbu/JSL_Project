@@ -1,4 +1,4 @@
-# Risk assessment of joint space loss progression
+# Risk assessment of JSL progression
 Predicting joint space loss (JSL) progression with deep learning
 
 ## Introduction
