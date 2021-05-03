@@ -31,17 +31,15 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
   - <img src="https://www.researchgate.net/profile/Joseph_Antony3/publication/315695691/figure/fig6/AS:668531486101508@1536401735381/The-KL-grading-system-to-assess-the-severity-of-knee-OA.ppm" width="600" height="350">. 
   - In our two methods mentioned below, we will adopt the KL-grade in 2 different ways, and we hope that with the help of KL-grade, the model can learn more fruitful and informative features that can help our downstream task of predicting the JSL progression. 
 
-- **Method 1**:
-  - My first approach is to formulate the problem in a multi-tasking setting to predict the KL-grade and the JSL progression at the same time. We first use CNN as a feature extractor, and two different fully-connected networks are attached to the end of the CNN to make the classification. One has 5 output nodes with a softmax activation responsible for KL_grade classification, and the other one has 1 output nodes with a sigmoid activation to predict JSL progression. The following image shows the architecture of the whole network. 
- - 
- - 
-Before getting into predicting the **joint space loss (JSL)** progression directly, we first trained the model to predict 5-level **KL_grade** (~0.72 accuracy). There are several reasons to this:
-  * KL_grade is one of the most important factors in determining the Knee Osteoarthritis severity, and it's labeled by central reading from the baseline images. Here is a image shows the image corresponding to KL-grade 1-4: <img src="https://www.researchgate.net/profile/Joseph_Antony3/publication/315695691/figure/fig6/AS:668531486101508@1536401735381/The-KL-grading-system-to-assess-the-severity-of-knee-OA.ppm">
-  * We hope that by first training model to predict KL_grade, the model can learn fruitful features that can help our downstream task on predicting the JSL progression. 
-  * We have more labels on KL_grade (8000+) than on JSL progression(4000+), which helps the large network train and stablize, and give us more efficient training 
-  * Give us more efficient training in later work and the training convergence will be faster.
+- **Balancing dataset or cost-sensitive learning**:
+  - Since we have **2812 knees with no-progression and 1351 knees with progression** in our dataset. I took two different ways to deal with this imbalance, one is to downsample the non-progression group in half so that it matches the number of progression group, and second approach is to assign class weights of 2 to progression class, and weights of 1 to non-progression class. It turned out that balancing the dataset outperforms the cost-sensitive learning strategy. 
 
-<img src="https://www.researchgate.net/profile/Joseph_Antony3/publication/315695691/figure/fig6/AS:668531486101508@1536401735381/The-KL-grading-system-to-assess-the-severity-of-knee-OA.ppm">
+- **Method 1**:
+  - My first approach is to formulate the problem in a multi-tasking setting to predict the KL-grade and the probability of JSL progression at the same time. We first use train a VGG16 (initialized using pretrained weights on ImageNet) as a feature extractor, and two different fully-connected networks are attached to the end of the CNN to make the classification. One has 5 output nodes with a softmax activation responsible for KL_grade classification, and the other one has 1 output nodes with a sigmoid activation to predict JSL progression. The following image shows the architecture of the whole network. 
+  - The current performance of this network is around 0.7 on AUC. By setting the threshold to 0.5, the model has a recall of 0.76 and a precision of 0.61. This result is not really optimal and will be further diagnosed and improved.
+
+- **Method 2**:
+  - In the second approach, we first pretrained the VGG16 to predict 5-level **KL_grade** (~0.72 accuracy). After that, we transfer the model to the JSL progression prediction task, and replaced the 5 output nodes at the end by a single output node, and re-train the whole model. Once the model has been fully trained, we freeze the CNN's parameter, and concatenate the clinical risk factors to the flattened layer of the CNN, and 
 
 ### Several notes on running the notebooks on Google Colab
 * You need to change the all paths appeared in the notebooks to the paths in your google drive.
