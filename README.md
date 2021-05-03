@@ -9,8 +9,8 @@ Predicting joint space loss (JSL) progression with deep learning
 period in 4796 subjects between the ages of 45 and 75 years with or at high risk for knee OA. Among the all the 9592 knees from 4796 subjects, 4163 knees has the baseline X-ray images and the following baseline clinical risk factors available:
   * **Age, Gender, Race, BMI, Knee injury history** at baseline.
   * **KL-grade** of knee OA provided by central reading at baseline.
-  * **anatomic axis alignment measurements** provided by central reading at baseline.
-  * **minimum medial joint space width measurements** provided by central reading at baseline and 48-month follow-up. (This will be used for defining joint space loss and labeling our target variable)
+  * **Anatomic axis alignment measurements** provided by central reading at baseline.
+  * **Minimum medial joint space width measurements** provided by central reading at baseline and 48-month follow-up. (This will be used for defining joint space loss and labeling our target variable)
  
 * Definitive progression of **radiographic joint space loss (JSL)** was defined according to the National Institute of Health OA Biomarkers Consortium Project as a greater than or equal to 0.7 mm decrease in minimum medial joint space width measurements obtained between baseline and 48-month follow-up. As a result, we have **2812 knees with no-progression and 1351 knees with progression**. 
 
