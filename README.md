@@ -1,7 +1,24 @@
 # JSL_Project
-Predicting **Joint space loss (JSL)** progression with deep learning
+Predicting joint space loss (JSL) progression with deep learning
 
-### Preliminary work
+### Introduction
+* Knee osteoarthritis is a condition where the cartilage in the knee degenerates, or break down, which will results in pain, swelling, stiffness and decreased ability to move. This project is focused on developing a risk assessment deep learning model that can automatically evaluate the risk of progression of joint space loss using the knee's baseline X-rays image together with the patient's clinical risk factors including age, gender, race, BMI, KL-grade and etc. The model can help to identify at the early stage those individuals who are at a high risk of developing the knee OA, and provide them with more appropriate and effective treatments to prevent the progression of joint space loss. Note that the models are not entirely desireale and optimal yet, and we are still working to improve the performance.
+
+### Dataset
+* The dataset was provided by Osteoarthritis Initiative (OAI) database, a multi-center study which collected longitudinal clinical and imaging data over a 9-year follow-up
+period in 4796 subjects between the ages of 45 and 75 years with or at high risk for knee OA. Among the 4796 subjects, 2301 of them (4602 knees) has the baseline X-ray images and the following baseline clinical risk factors available:
+  * **Age, Gender, Race, BMI, Knee injury history** at baseline.
+  * **KL-grade** of knee OA provided by central reading at baseline.
+  * **anatomic axis alignment measurements** provided by central reading at baseline.
+  * **minimum medial joint space width measurements** provided by central reading at baseline and 48-month follow-up. (This will be used for defining joint space loss and labeling our target variable)
+ 
+* Definitive progression of **radiographic joint space loss (JSL)** was defined according to the National Institute of Health OA Biomarkers Consortium Project as a greater than or equal to 0.7 mm decrease in minimum medial joint space width measurements obtained between baseline and 48-month follow-up. 
+
+* Here is an example showing **radiographic joint space loss(JSL)**: 
+  * <img src="https://www.shawephysio.com/wp-content/uploads/2018/05/knee-arthritis.png" width="300" height="300">
+
+### Preliminary work and image preprocessing
+* Original images are in DICOM format containing both knees for one patient, and we convert them into PNG format and split them in half to extract the left knee and right knee. Shows the following 
 * Convert all the DICOM images to PNG, and split in half to extract the left knee and right knee. 
 * Feed the single knee images to YOLO-V4 to automatically plot the bounding box on the knee joint and crop the bounding region.
 
