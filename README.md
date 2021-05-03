@@ -35,10 +35,13 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
   - Since we have **2812 knees with no-progression and 1351 knees with progression** in our dataset. I took two different ways to deal with this imbalance, one is to downsample the non-progression group in half so that it matches the number of progression group, and second approach is to assign class weights of 2 to progression class, and weights of 1 to non-progression class. It turned out that balancing the dataset outperforms the cost-sensitive learning strategy. 
 
 - **Method 1**:
-  - My first approach is to formulate the problem in a multi-tasking setting to predict the KL-grade and the probability of JSL progression at the same time. We first use train a VGG16 (initialized using pretrained weights on ImageNet) as a feature extractor, and two different fully-connected networks are attached to the end of the CNN to make the classification. One has 5 output nodes with a softmax activation responsible for KL_grade classification, and the other one has 1 output nodes with a sigmoid activation to predict JSL progression. The following image shows the architecture of the whole network. 
-  - The current performance of this network is around 0.7 on AUC. By setting the threshold to 0.5, the model has a recall of 0.76 and a precision of 0.61. This result is not really optimal and will be further diagnosed and improved.
+  - architecture of network 1:
+  - <img src = "https://github.com/udAAbu/JSL_Project/blob/main/github_images/Multi-tasking.png">
+  - This first approach is to formulate the problem in a multi-tasking setting to predict the KL-grade and the probability of JSL progression at the same time. We first use train a VGG16 (initialized using pretrained weights on ImageNet) as a feature extractor, and two different fully-connected networks are attached to the end of the CNN to make the classification. One has 5 output nodes with a softmax activation responsible for KL_grade classification, and the other one has 1 output nodes with a sigmoid activation to predict JSL progression. The following image shows the architecture of the whole network. The current performance of this network is around 0.7 on AUC. By setting the threshold to 0.5, the model has a recall of 0.76 and a precision of 0.61. This result is not optimal and will be further diagnosed and improved.
 
 - **Method 2**:
+  - architecture of network 2:
+  - <img src = "https://github.com/udAAbu/JSL_Project/blob/main/github_images/joint.png">
   - In the second approach, we first pretrained the VGG16 to predict 5-level **KL_grade** (~0.72 accuracy). After that, we transfer the model to the JSL progression prediction task, and replaced the 5 output nodes at the end by a single output node, and re-train the whole model. Once the model has been fully trained, we freeze the CNN's parameter, and concatenate the clinical risk factors to the flattened layer of the CNN, and 
 
 ### Several notes on running the notebooks on Google Colab
