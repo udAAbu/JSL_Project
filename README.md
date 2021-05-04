@@ -25,7 +25,7 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
 
 ***The diagram above shows how we split the image, feed the single knee images to YOLO-V4 to automatically plot the bounding box around the knee joint and crop the bounding region***
 
-## Methodology:
+## Methodology and results:
 - **Kellgren-Lawrence grade (KL-grade)**:
   - KL-grade is a scale that measures the currect stage of OA. It's determined by the central reading from the baseline images. There are 5 grades in total (0-4), and the severity of OA increases as the number goes up. The following images provides a illustration: 
   - <img src="https://www.researchgate.net/profile/Joseph_Antony3/publication/315695691/figure/fig6/AS:668531486101508@1536401735381/The-KL-grading-system-to-assess-the-severity-of-knee-OA.ppm" width="600" height="350">. 
