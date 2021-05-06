@@ -34,6 +34,9 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
 - **Balancing dataset or cost-sensitive learning**:
   - Since we have **2812 knees with no-progression and 1351 knees with progression** in our dataset. I took two different ways to deal with this imbalance, one is to downsample the non-progression group in half so that it matches the number of progression group, and second approach is to assign class weights of 2 to progression class, and weights of 1 to non-progression class. It turned out that balancing the dataset outperforms the cost-sensitive learning strategy. 
 
+- **Baseline with only clinical risk factors**:
+  - Using only the clinical risk factors to predict the progression of JSL, I got the best performance from XGBoost, which gives us an AUC of 0.6, with 0.5 recall and 0.56 precision at 0.5 threshold. 
+
 - **Method 1**:
   - architecture of network 1:
   - <img src = "https://github.com/udAAbu/JSL_Project/blob/main/github_images/Multi-tasking.png">
