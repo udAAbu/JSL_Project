@@ -44,6 +44,10 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
   - <img src = "https://github.com/udAAbu/JSL_Project/blob/main/github_images/joint2.png">
   - In this second approach, we first pretrained the VGG16 to predict 5-level **KL_grade** (~0.72 accuracy). After that, we transfer the weights of this CNN model to the JSL progression prediction task. In addition to the raw image, we also incorporated the clinical risk factors in this model by feeding them through one layer to encode the information and concatenate this encoded representation with the flattened layer of the CNN. Finally, we replaced the 5 output nodes at the end by a single output node, and re-train the whole model. The current performance of this network is around 0.73 on AUC, and has a recall of 0.82 and precision of 0.61 at a threshold of 0.5. These results are not optimal and will be further diagnosed and improved.
 
+- **Saliency Map**:
+ - <img src = "https://github.com/udAAbu/JSL_Project/blob/main/github_images/saliency_map.png">
+ - We can easily see that the high activation areas on the image are around the joint space of the knee, especially the central part and two verge regions. These regions are the most crucial parts for CNN to make its prediction. 
+
 ### Several notes on running the notebooks on Google Colab
 * You need to change the all paths appeared in the notebooks to the paths in your google drive.
 * If you use the KL_grade pre-trained model, [Pretraining_on_KL_grade](https://github.com/udAAbu/JSL_Project/blob/main/Pretraining_on_KL_grade.ipynb) should be executed before running [radio_joint](https://github.com/udAAbu/JSL_Project/blob/main/radio_joint.ipynb).
