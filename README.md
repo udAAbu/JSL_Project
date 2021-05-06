@@ -46,7 +46,7 @@ period in 4796 subjects between the ages of 45 and 75 years with or at high risk
 
 - **Saliency Map**:
  - <img src = "https://github.com/udAAbu/JSL_Project/blob/main/github_images/saliency_map.png">
- - We can easily see that the high activation areas on the image are around the joint space of the knee, especially the central part and two verge regions. These regions are the most crucial parts for CNN to make its prediction. 
+ - We can easily see that the high activation regions on the image are concentrated on the joint space of the knee, especially the central part and two verge areas. These regions are the most crucial parts for CNN to make its prediction. 
 
 ### Several notes on running the notebooks on Google Colab
 * You need to change the all paths appeared in the notebooks to the paths in your google drive.
